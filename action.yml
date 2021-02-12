@@ -1,5 +1,8 @@
 name: 'Extract Issue Template Fields'
 description: 'Extract metadata and body from issue template markdown'
+branding:
+  icon: align-left
+  color: white
 inputs:
   path:
     description: |-
