@@ -22,7 +22,7 @@ jobs:
     steps:
     # Get the title, labels, assignees, and body of the issue template at the path,
     # .github/ISSUE_TEMPLATE/my_template.md, if available.
-    - uses: imjohnbo/extract-issue-template-fields@main
+    - uses: imjohnbo/extract-issue-template-fields@v0.0.1
       id: extract
       with:
         path: .github/ISSUE_TEMPLATE/my_template.md
