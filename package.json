@@ -1,35 +1,32 @@
 {
-  "name": "javascript-action",
-  "version": "1.0.0",
-  "description": "JavaScript Action Template",
+  "name": "extract-issue-template-fields",
+  "version": "0.0.1",
+  "description": "Extract Issue Template Fields",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
-    "test": "jest",
-    "all": "npm run lint && npm run prepare && npm run test"
+    "lint": "semistandard",
+    "build": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "all": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/imjohnbo/extract-issue-template-fields.git"
   },
-  "keywords": [
-    "GitHub",
-    "Actions",
-    "JavaScript"
-  ],
-  "author": "",
+  "semistandard": {
+    "ignore": [
+      "dist/**",
+      "node_modules/**"
+    ]
+  },
+  "author": "imjohnbo",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
-  },
-  "homepage": "https://github.com/actions/javascript-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.5"
+    "@actions/core": "^1.2.5",
+    "@actions/github": "^4.0.0",
+    "js-yaml": "^3.14.1"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.27.0",
-    "eslint": "^7.4.0",
-    "jest": "^26.6.3"
+    "semistandard": "^16.0.0"
   }
 }

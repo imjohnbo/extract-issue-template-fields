@@ -1,13 +1,28 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Extract Issue Template Fields'
+description: 'Extract metadata and body from issue template markdown'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  path:
+    description: |-
+      Full path to template file, e.g. .github/ISSUE_TEMPLATES/bug.md
     required: true
-    default: '1000'
+
 outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  body:
+    description: |-
+      Body of issue template
+
+  title:
+    description: |-
+      Title field
+
+  labels:
+    description: |-
+      Comma delimited list of labels
+
+  assignees:
+    description: |-
+      Comma delimited list of assignees
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
