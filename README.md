@@ -61,7 +61,7 @@ jobs:
         path: .github/ISSUE_TEMPLATE/my_template.md
 
     # Create new issue with assignees, labels, title, and body
-    - uses: imjohnbo/issue-bot@release/v3
+    - uses: imjohnbo/issue-bot@v3
       with:
         assignees: ${{ steps.extract.outputs.assignees }}
         labels: ${{ steps.extract.outputs.labels }}
