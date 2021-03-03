@@ -12,6 +12,12 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.release.tag_name }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v2
+
+      - name: Install deps and build
+        run: npm ci && npm run build
           
       - uses: JasonEtco/build-and-tag-action@v2
         env:
