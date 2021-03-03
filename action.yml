@@ -4,6 +4,12 @@ branding:
   icon: align-left
   color: white
 inputs:
+  token:
+    description: |-
+      Token used to authenticate with GitHub API.
+    required: false
+    default: ${{ github.token }}
+    
   path:
     description: |-
       Full path to template file, e.g. .github/ISSUE_TEMPLATES/bug.md

@@ -2,10 +2,10 @@
   "name": "extract-issue-template-fields",
   "version": "0.0.1",
   "description": "Extract Issue Template Fields",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "semistandard",
-    "build": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "build": "ncc build index.js -o dist",
     "all": "npm run lint && npm run build"
   },
   "repository": {

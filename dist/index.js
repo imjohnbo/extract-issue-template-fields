@@ -1,4 +1,4 @@
-require('./sourcemap-register.js');module.exports =
+module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -10,7 +10,7 @@ const github = __nccwpck_require__(5438);
 const yaml = __nccwpck_require__(1917);
 
 const token = process.env.GITHUB_TOKEN;
-const octokit = github.getOctokit(token);
+let octokit;
 
 // Return issue body, plus the metadata header if from a standard issue template
 const getTemplateFromFile = async (templateFilePath) => {
@@ -75,6 +75,9 @@ const getTemplateFromFile = async (templateFilePath) => {
 async function run () {
   try {
     const path = core.getInput('path', { required: true });
+    const token = core.getInput('token');
+    octokit = github.getOctokit(token);
+    
     core.info(`Getting template at path: ${path}`);
 
     const { body, metadata } = await getTemplateFromFile(path);
@@ -10194,4 +10197,3 @@ module.exports = require("zlib");;
 /******/ 	return __nccwpck_require__(2932);
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map

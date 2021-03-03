@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const yaml = require('js-yaml');
 
 const token = process.env.GITHUB_TOKEN;
-const octokit = github.getOctokit(token);
+let octokit;
 
 // Return issue body, plus the metadata header if from a standard issue template
 const getTemplateFromFile = async (templateFilePath) => {
@@ -68,6 +68,9 @@ const getTemplateFromFile = async (templateFilePath) => {
 async function run () {
   try {
     const path = core.getInput('path', { required: true });
+    const token = core.getInput('token');
+    octokit = github.getOctokit(token);
+    
     core.info(`Getting template at path: ${path}`);
 
     const { body, metadata } = await getTemplateFromFile(path);
