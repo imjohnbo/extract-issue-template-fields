@@ -22,12 +22,10 @@ jobs:
     steps:
     # Get the title, labels, assignees, and body of the issue template at the path,
     # .github/ISSUE_TEMPLATE/my_template.md, if available.
-    - uses: imjohnbo/extract-issue-template-fields@v0.0.1
+    - uses: imjohnbo/extract-issue-template-fields@v1
       id: extract
       with:
         path: .github/ISSUE_TEMPLATE/my_template.md
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Log outputs of previous step
     - run: |-
@@ -57,12 +55,10 @@ jobs:
     steps:
     # Get the title, labels, assignees, and body of the issue template at the path,
     # .github/ISSUE_TEMPLATE/my_template.md, if available.
-    - uses: imjohnbo/extract-issue-template-fields@main
+    - uses: imjohnbo/extract-issue-template-fields@v1
       id: extract
       with:
         path: .github/ISSUE_TEMPLATE/my_template.md
-      env: 
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # Create new issue with assignees, labels, title, and body
     - uses: imjohnbo/issue-bot@release/v3
@@ -71,8 +67,6 @@ jobs:
         labels: ${{ steps.extract.outputs.labels }}
         title: ${{ steps.extract.outputs.title }}
         body: ${{ steps.extract.outputs.body }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## Contributing
