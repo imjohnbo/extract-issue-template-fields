@@ -33,5 +33,5 @@ outputs:
       Comma delimited list of assignees
 
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
